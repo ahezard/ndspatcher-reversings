@@ -136,7 +136,7 @@ int analyzeArm9(u8* ndsData, u32 fsize, FILE* patFp)
         sizeofHardcodedArm9 = 0x1AC;
     } else {
         if (vAddrOfCardId || arm9ramAddr == 0x2004000) {
-            hardcodedArm9 = (u32*)&unk_42486C;
+            hardcodedArm9 = (u32*)&arm9readHardCode;
             sizeofHardcodedArm9 = 0x1C0;
             if (vAddrOfCardId)
                 arm9ramAddrMod = vAddrOfCardRead + 0x200;
@@ -144,7 +144,7 @@ int analyzeArm9(u8* ndsData, u32 fsize, FILE* patFp)
                 arm9ramAddrMod =
                     arm9ramAddr != 0x2004000 ? 0x23FEC00 : 0x2003E00;
         } else {
-            hardcodedArm9 = (u32*)&unk_42486C;
+            hardcodedArm9 = (u32*)&arm9readHardCode;
             sizeofHardcodedArm9 = 0x1C0;
             arm9ramAddrMod = arm9ramAddr != 0x2004000 ? 0x23FEC00 : 0x2003E00;
         }
